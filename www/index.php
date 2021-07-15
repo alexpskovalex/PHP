@@ -1,4 +1,4 @@
-<html>
+e<html>
 <head>
 </head>
 
@@ -62,5 +62,9 @@ $login=$_POST['login'];
 $sql="INSERT INTO pdo_trying.users (login, password, username ) VALUES (:login, :password, :username) ";
 $insert=$pdo->prepare($sql);
 $insert->execute(array(':login'=>$_POST['login'],':password'=>$_POST['password'],':username'=>$_POST['username']));
+echo '<hr>';
+$sql='SELECT username,password FROM pdo_trying.users';
+$result = $pdo->query($sql)->fetchAll(PDO::FETCH_KEY_PAIR);
+print_r ($result);
 ?>
 </html>
